@@ -20,6 +20,4 @@ function isChristmasTime() {
   }
 }
 
-window.onload = () => {
-  isChristmasTime();
-};
+isChristmasTime();

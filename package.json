@@ -5,7 +5,7 @@
   "main": "site/index.html",
   "scripts": {
     "start": "live-server site",
-    "deploy": "gh-pages -d site"
+    "deploy": "echo 'marcopollacci.it' > sites/CNAME && gh-pages -d site"
   },
   "author": "Marco Pollacci",
   "license": "MIT",

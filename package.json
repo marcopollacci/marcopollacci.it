@@ -1,0 +1,16 @@
+{
+  "name": "marcopollacci.it",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "site/index.html",
+  "scripts": {
+    "start": "live-server site",
+    "deploy": "gh-pages -d site"
+  },
+  "author": "Marco Pollacci",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "live-server": "^1.2.2"
+  }
+}

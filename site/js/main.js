@@ -14,7 +14,7 @@ function isChristmasTime() {
 
     //change img
     const img = document.querySelector("img");
-    img.src = "images/me-christmas.jpg";
+    img.src = "images/me-christmas.webp";
   }
 }
 

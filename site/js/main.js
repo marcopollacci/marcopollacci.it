@@ -1,6 +1,6 @@
 function isChristmasTime() {
   const date = new Date();
-  const isChristmasTime = date.getMonth() === 10;
+  const isChristmasTime = date.getMonth() === 11;
   if (isChristmasTime) {
     document.body.classList.add("is-december");
     //load snowflakes components

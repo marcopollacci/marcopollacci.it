@@ -2,7 +2,7 @@ function isChristmasTime() {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const startOfSeason = new Date(currentYear, 10, 15); // 15 november
-  const endOfYear = new Date(currentYear + 1, 11, 31); // 31 december
+  const endOfYear = new Date(currentYear, 11, 31); // 31 december
 
   const isFestivalSeason =
     (currentDate.getMonth() === 0 && currentDate.getDate() <= 6) ||

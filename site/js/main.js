@@ -34,6 +34,5 @@ function isChristmasTime() {
  * @example
  * isFestiveSeason() // => true if the current date is between 15th November and 6th January
  */
-function isFestiveSeason() {}
 
 isChristmasTime();

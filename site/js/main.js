@@ -1,5 +1,14 @@
 function isChristmasTime() {
-  if (isFestiveSeason()) {
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const startOfSeason = new Date(currentYear, 10, 15); // 15 november
+  const endOfYear = new Date(currentYear + 1, 11, 31); // 31 december
+
+  const isFestivalSeason =
+    (currentDate.getMonth() === 0 && currentDate.getDate() <= 6) ||
+    (currentDate >= startOfSeason && currentDate <= endOfYear);
+
+  if (isFestivalSeason) {
     document.body.classList.add("is-december");
     //load snowflakes components
     const snowflakes = document.createElement("snow-flakes");
@@ -25,19 +34,6 @@ function isChristmasTime() {
  * @example
  * isFestiveSeason() // => true if the current date is between 15th November and 6th January
  */
-function isFestiveSeason() {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const startOfSeason = new Date(currentYear, 10, 15); // 15 november
-  const endOfSeason = new Date(currentYear + 1, 0, 6); // 6 january next year
-
-  // if it's the first week of january
-  if (currentDate.getMonth() === 0 && currentDate.getDate() <= 6) {
-    return true;
-  }
-
-  // general check
-  return currentDate >= startOfSeason && currentDate <= endOfSeason;
-}
+function isFestiveSeason() {}
 
 isChristmasTime();

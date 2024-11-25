@@ -58,12 +58,12 @@ p {
   gap: 1rem;
 }
 
-body.is-december {
+body.is-christmas-time {
   background-color: hsl(228, 5%, 15%);
   color: hsl(228, 5%, 80%);
 }
 
-body.is-december a {
+body.is-christmas-time a {
   color: hsl(228, 5%, 80%);
 }
 

@@ -31,3 +31,13 @@ function isChristmasTime() {
 }
 
 isChristmasTime();
+console.log(`
+    __
+___( o)>
+\\ <_. )
+  \`---' 
+
+Quack! 🦆
+Welcome to my code! 🚀
+If you're interested, check out my GitHub:
+https://github.com/marcopollacci`);

@@ -16,8 +16,11 @@ function isChristmasTime() {
     document.body.appendChild(snowflakes);
     //add scripts
     const script = document.createElement("script");
-    script.src =
-      "https://marcopollacci.github.io/christmas-tree/components/snowflake.js";
+    script.src = "https://snowflake.marcopollacci.it/snowflake.js";
+    script.setAttribute(
+      "cssUrl",
+      "https://snowflake.marcopollacci.it/snowflake.css"
+    );
     script.defer = true;
     document.body.appendChild(script);
 

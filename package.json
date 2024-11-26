@@ -4,7 +4,7 @@
   "description": "My website",
   "main": "site/index.html",
   "scripts": {
-    "start": "live-server site",
+    "start": "live-server site --port=5050",
     "uglify": "uglifyjs-folder site -e -x .js -o site",
     "deploy": "npm run uglify && gh-pages -d site && git restore ."
   },

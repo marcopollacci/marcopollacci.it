@@ -7,7 +7,7 @@
     "start": "live-server site --port=5050",
     "uglify": "uglifyjs-folder site -e -x .js -o site",
     "css-minify": "cleancss -b site/**/*.css --batch-suffix ''",
-    "deploy": "npm run uglify && gh-pages -d site && git restore ."
+    "deploy": "npm run uglify && npm run css-minify && gh-pages -d site && git restore ."
   },
   "author": "Marco Pollacci",
   "license": "MIT",

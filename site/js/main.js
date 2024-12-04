@@ -1,15 +1,18 @@
-function isChristmasTime() {
+const isFestiveSeason = () => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const startOfSeason = new Date(currentYear, 10, 15); // 15 november
   const endOfYear = new Date(currentYear, 11, 31); // 31 december
 
-  const isFestiveSeason =
+  return (
     (currentDate.getMonth() === 0 && currentDate.getDate() <= 6) ||
-    (currentDate >= startOfSeason && currentDate <= endOfYear);
+    (currentDate >= startOfSeason && currentDate <= endOfYear)
+  );
+};
 
-  if (isFestiveSeason) {
-    document.body.classList.add("is-christmas-time");
+function isChristmasTime() {
+  if (isFestiveSeason()) {
+    document.body.setAttribute("is-christmas-time", "");
     //load snowflakes components
     const snowflakes = document.createElement("snow-flakes");
     snowflakes.setAttribute("flakes", "300");
@@ -30,7 +33,37 @@ function isChristmasTime() {
   }
 }
 
+/**
+ * Toggle the class of the body based on the preferred color scheme.
+ * @param {String} preference - The preferred color scheme
+ * @returns {void}
+ */
+const toggleClass = (preference) => {
+  document.body.classList.toggle(
+    "is-forced-light-mode",
+    preference === "light"
+  );
+  document.body.classList.toggle("is-forced-dark-mode", preference === "dark");
+  localStorage.setItem("marco-pollacci-preferredTheme", preference);
+};
+
+const preferredTheme = localStorage.getItem("marco-pollacci-preferredTheme");
+if (preferredTheme && !isFestiveSeason()) {
+  toggleClass(preferredTheme);
+}
+
+document
+  .querySelector(".light-dark-toggle")
+  .addEventListener("click", (event) => {
+    const preference = event.target.getAttribute("prefer-color-scheme");
+    if (!preference) {
+      return;
+    }
+    toggleClass(preference);
+  });
+
 isChristmasTime();
+
 console.log(`
     __
 ___( o)>

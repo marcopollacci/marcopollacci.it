@@ -18,6 +18,21 @@ body {
   color: var(--text-color);
 }
 
+body.is-forced-light-mode {
+  background-color: #fff;
+  color: #222;
+}
+
+body.is-forced-dark-mode,
+body[is-christmas-time] {
+  background-color: hsl(228, 5%, 15%);
+  color: hsl(228, 5%, 80%);
+}
+
+body.is-christmas-time a {
+  color: hsl(228, 5%, 80%);
+}
+
 a {
   color: var(--text-color);
 }
@@ -63,13 +78,16 @@ p {
   gap: 1rem;
 }
 
-body.is-christmas-time {
-  background-color: hsl(228, 5%, 15%);
-  color: hsl(228, 5%, 80%);
+.container .light-dark-toggle {
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  column-gap: 1.5rem;
+  margin-block-start: 1.8rem;
 }
 
-body.is-christmas-time a {
-  color: hsl(228, 5%, 80%);
+body[is-christmas-time] .light-dark-toggle {
+  display: none;
 }
 
 @media (pointer: coarse) and (orientation: portrait) {

@@ -1,3 +1,11 @@
+/**
+ * Check if the current date is between the 1st of January and the 6th of January,
+ * or between the 15th of November and the 31st of December.
+ * This is used to determine if it is currently Christmas time and if the Christmas
+ * theme should be applied to the website.
+ *
+ * @returns {boolean} - true if it is Christmas time, false otherwise
+ */
 const isFestiveSeason = () => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
@@ -10,7 +18,13 @@ const isFestiveSeason = () => {
   );
 };
 
-function isChristmasTime() {
+/**
+ * Check if it is Christmas time and if so, loads snowflake components
+ * and changes the img of the main page.
+ *
+ * @returns {void}
+ */
+const isChristmasTime = () => {
   if (isFestiveSeason()) {
     document.body.setAttribute("is-christmas-time", "");
     //load snowflakes components
@@ -31,7 +45,7 @@ function isChristmasTime() {
     const img = document.querySelector("img");
     img.src = "images/me-christmas.webp";
   }
-}
+};
 
 /**
  * Toggle the class of the body based on the preferred color scheme.

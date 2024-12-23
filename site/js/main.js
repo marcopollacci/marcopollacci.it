@@ -47,21 +47,29 @@ const toggleClass = (preference) => {
   localStorage.setItem("marco-pollacci-preferredTheme", preference);
 };
 
-const preferredTheme = localStorage.getItem("marco-pollacci-preferredTheme");
-if (preferredTheme && !isFestiveSeason()) {
-  toggleClass(preferredTheme);
-}
+/**
+ * On page load, check if there is a preferred theme saved in local storage,
+ * if so apply it. Also add an event listener to the light-dark-toggle element
+ * so that when it is clicked, it toggles the class of the body to the preferred
+ * color scheme.
+ */
+const startUp = () => {
+  const preferredTheme = localStorage.getItem("marco-pollacci-preferredTheme");
+  if (preferredTheme && !isFestiveSeason()) {
+    toggleClass(preferredTheme);
+  }
+  document
+    .querySelector(".light-dark-toggle")
+    .addEventListener("click", (event) => {
+      const preference = event.target.getAttribute("prefer-color-scheme");
+      if (!preference) {
+        return;
+      }
+      toggleClass(preference);
+    });
+};
 
-document
-  .querySelector(".light-dark-toggle")
-  .addEventListener("click", (event) => {
-    const preference = event.target.getAttribute("prefer-color-scheme");
-    if (!preference) {
-      return;
-    }
-    toggleClass(preference);
-  });
-
+startUp();
 isChristmasTime();
 
 console.log(`

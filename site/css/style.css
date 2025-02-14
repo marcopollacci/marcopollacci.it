@@ -29,7 +29,8 @@ body[is-christmas-time] {
   color: hsl(228, 5%, 80%);
 }
 
-body[is-christmas-time] a {
+body[is-christmas-time] a,
+body.is-forced-dark-mode a {
   color: hsl(228, 5%, 80%);
 }
 

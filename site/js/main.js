@@ -53,6 +53,14 @@ const isChristmasTime = () => {
  * @returns {void}
  */
 const toggleClass = (preference) => {
+  if (preference === "system") {
+    localStorage.removeItem("marco-pollacci-preferredTheme");
+    document.body.classList.remove(
+      "is-forced-light-mode",
+      "is-forced-dark-mode"
+    );
+    return;
+  }
   document.body.classList.toggle(
     "is-forced-light-mode",
     preference === "light"

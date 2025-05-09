@@ -43,7 +43,7 @@ p {
   margin: 0.3rem 0;
 }
 
-.container {
+main {
   padding: 2em;
   margin-block-start: 2em;
   display: flex;
@@ -53,33 +53,33 @@ p {
   margin: 0 auto;
 }
 
-.container h1 {
+main h1 {
   margin-block-end: 0;
   font-size: 3rem;
 }
-.container h2 {
+main h2 {
   margin-block-start: 0.3em;
 }
-.container > img {
+main > img {
   width: 15rem;
   border-radius: 50%;
 }
 
-.container > h2:last-of-type {
+main > h2:last-of-type {
   margin-block-start: 2rem;
 }
 
-.container > h2:last-of-type::after {
+main > h2:last-of-type::after {
   content: " 🔎";
 }
 
-.links {
+[role="link"] {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.container .light-dark-toggle {
+main .light-dark-toggle {
   cursor: pointer;
   display: flex;
   font-size: 1.5rem;
@@ -95,7 +95,7 @@ body[is-christmas-time] .light-dark-toggle {
 }
 
 @media (pointer: coarse) and (orientation: portrait) {
-  .container {
+  main {
     align-items: flex-start;
   }
   .links a {

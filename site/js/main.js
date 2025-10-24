@@ -24,6 +24,33 @@ const isFestiveSeason = (startDate, endDate, isChristmas = true) => {
 };
 
 /**
+ * Generates and appends a script element to the document body with the specified source and CSS URL.
+ * @param {string} src - The source URL of the script to be added.
+ * @param {string} cssUrl - The URL of the CSS file to be associated with the script.
+ */
+const generateScript = (src, cssUrl) => {
+  const script = document.createElement("script");
+  script.src = src;
+  script.setAttribute("cssUrl", cssUrl);
+  script.defer = true;
+  document.body.appendChild(script);
+};
+
+/** Generates a custom component tag, sets an attribute, and appends it to the document body.
+ * @param {string} bodyAttribute - The attribute to be set on the body element.
+ * @param {string} tagName - The name of the custom component tag to be created.
+ * @param {string} attribute - The attribute to be set on the custom component.
+ * @param {number} number - The value to be assigned to the specified attribute of the custom component.
+ */
+const generateComponenTag = (bodyAttribute, tagName, attribute, number) => {
+  document.body.setAttribute(bodyAttribute, "");
+
+  const component = document.createElement(tagName);
+  component.setAttribute(attribute, number);
+  document.body.appendChild(component);
+};
+
+/**
  * Check if it is Christmas time and if so, loads snowflake components
  * and changes the img of the main page.
  *
@@ -31,20 +58,14 @@ const isFestiveSeason = (startDate, endDate, isChristmas = true) => {
  */
 const isChristmasTime = () => {
   if (isFestiveSeason([10, 15], [11, 31])) {
-    document.body.setAttribute("is-christmas-time", "");
     //load snowflakes components
-    const snowflakes = document.createElement("snow-flakes");
-    snowflakes.setAttribute("flakes", "300");
-    document.body.appendChild(snowflakes);
+    generateComponenTag("is-christmas-time", "snow-flakes", "flakes", "300");
+
     //add scripts
-    const script = document.createElement("script");
-    script.src = "https://snowflake.marcopollacci.it/snowflake.js";
-    script.setAttribute(
-      "cssUrl",
+    generateScript(
+      "https://snowflake.marcopollacci.it/snowflake.js",
       "https://snowflake.marcopollacci.it/snowflake.css"
     );
-    script.defer = true;
-    document.body.appendChild(script);
 
     //change img
     const img = document.querySelector("img");
@@ -59,16 +80,9 @@ const isChristmasTime = () => {
  */
 const isSpookySeason = () => {
   if (isFestiveSeason([9, 15], [10, 2], false)) {
-    document.body.setAttribute("is-spooky-time", "");
-    const pumpkins = document.createElement("spooky-pumpkin");
-    pumpkins.setAttribute("pumpkins", "150");
-    document.body.appendChild(pumpkins);
+    generateComponenTag("is-spooky-time", "spooky-pumpkin", "pumpkins", "150");
 
-    const script = document.createElement("script");
-    script.src = "./js/spooky.js";
-    script.setAttribute("cssUrl", "https://marcopollacci.it/css/spooky.css");
-    script.defer = true;
-    document.body.appendChild(script);
+    generateScript("./js/spooky.js", "https://marcopollacci.it/css/spooky.css");
 
     //change img
     const img = document.querySelector("img");

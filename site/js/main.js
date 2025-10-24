@@ -13,9 +13,7 @@ const isFestiveSeason = (startDate, endDate, isChristmas = true) => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const startOfSeason = new Date(currentYear, monthStart, dayStart);
-  console.log("🚀 ~ isFestiveSeason ~ startOfSeason:", startOfSeason);
   const endOfSeason = new Date(currentYear, monthEnd, dayEnd);
-  console.log("🚀 ~ isFestiveSeason ~ endOfSeason:", endOfSeason);
 
   return (
     (isChristmas &&

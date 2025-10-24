@@ -24,12 +24,14 @@ body.is-forced-light-mode {
 }
 
 body.is-forced-dark-mode,
-body[is-christmas-time] {
+body[is-christmas-time],
+body[is-spooky-time] {
   background-color: hsl(228, 5%, 15%);
   color: hsl(228, 5%, 80%);
 }
 
 body[is-christmas-time] a,
+body[is-spooky-time] a,
 body.is-forced-dark-mode a {
   color: hsl(228, 5%, 80%);
 }
@@ -90,7 +92,8 @@ main .light-dark-toggle {
   row-gap: 0.5em;
 }
 
-body[is-christmas-time] .light-dark-toggle {
+body[is-christmas-time] .light-dark-toggle,
+body[is-spooky-time] .light-dark-toggle {
   display: none;
 }
 

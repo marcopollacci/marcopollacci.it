@@ -6,15 +6,22 @@
  *
  * @returns {boolean} - true if it is Christmas time, false otherwise
  */
-const isFestiveSeason = () => {
+const isFestiveSeason = (startDate, endDate, isChristmas = true) => {
+  const [monthStart, dayStart] = startDate;
+  const [monthEnd, dayEnd] = endDate;
+
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const startOfSeason = new Date(currentYear, 10, 15); // 15 november
-  const endOfYear = new Date(currentYear, 11, 31); // 31 december
+  const startOfSeason = new Date(currentYear, monthStart, dayStart);
+  console.log("🚀 ~ isFestiveSeason ~ startOfSeason:", startOfSeason);
+  const endOfSeason = new Date(currentYear, monthEnd, dayEnd);
+  console.log("🚀 ~ isFestiveSeason ~ endOfSeason:", endOfSeason);
 
   return (
-    (currentDate.getMonth() === 0 && currentDate.getDate() <= 6) ||
-    (currentDate >= startOfSeason && currentDate <= endOfYear)
+    (isChristmas &&
+      currentDate.getMonth() === 0 &&
+      currentDate.getDate() <= 6) ||
+    (currentDate >= startOfSeason && currentDate <= endOfSeason)
   );
 };
 
@@ -25,7 +32,7 @@ const isFestiveSeason = () => {
  * @returns {void}
  */
 const isChristmasTime = () => {
-  if (isFestiveSeason()) {
+  if (isFestiveSeason([10, 15], [11, 31])) {
     document.body.setAttribute("is-christmas-time", "");
     //load snowflakes components
     const snowflakes = document.createElement("snow-flakes");
@@ -44,6 +51,20 @@ const isChristmasTime = () => {
     //change img
     const img = document.querySelector("img");
     img.src = "images/me-christmas.webp";
+  }
+};
+
+/** Check if it is Spooky season (15th October to 2nd November)
+ * and if so, changes the img of the main page.
+ *
+ * @returns {void}
+ */
+const isSpookySeason = () => {
+  if (isFestiveSeason([9, 15], [10, 2], false)) {
+    document.body.setAttribute("is-spooky-time", "");
+    //change img
+    const img = document.querySelector("img");
+    img.src = "images/me-spooky.webp";
   }
 };
 
@@ -93,6 +114,7 @@ const startUp = () => {
 
 startUp();
 isChristmasTime();
+isSpookySeason();
 
 console.log(`
     __

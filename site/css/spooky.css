@@ -1,0 +1,56 @@
+:host {
+  z-index: -1;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.pumpkin {
+  opacity: 0.4;
+  pointer-events: none;
+  will-change: transform, opacity, left;
+  border-radius: 50%;
+  animation-name: pumpkinAnimations;
+  animation-duration: var(--pumpkins-default-animation-duration, 10s);
+  animation-iteration-count: infinite;
+  position: absolute;
+  transform: translateY(-10.625em);
+}
+
+.pumpkin::after {
+  content: "🎃";
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+.pumpkin.c2 {
+  /* background-color: var(--pumpkins-color-c2, #ffcc80); */
+  animation-duration: var(--pumpkins-default-animation-c2, 16s);
+}
+
+.pumpkin.c3 {
+  /* background-color: var(--pumpkins-color-c3, #fff); */
+  animation-duration: var(--pumpkins-default-animation-c3, 20s);
+}
+
+@keyframes pumpkinAnimations {
+  15%,
+  95% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.8;
+    transform: translateY(110vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pumpkin {
+    animation: none;
+  }
+}

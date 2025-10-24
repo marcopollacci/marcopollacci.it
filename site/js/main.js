@@ -60,6 +60,16 @@ const isChristmasTime = () => {
 const isSpookySeason = () => {
   if (isFestiveSeason([9, 15], [10, 2], false)) {
     document.body.setAttribute("is-spooky-time", "");
+    const pumpkins = document.createElement("spooky-pumpkin");
+    pumpkins.setAttribute("pumpkins", "150");
+    document.body.appendChild(pumpkins);
+
+    const script = document.createElement("script");
+    script.src = "./js/spooky.js";
+    script.setAttribute("cssUrl", "https://marcopollacci.it/css/spooky.css");
+    script.defer = true;
+    document.body.appendChild(script);
+
     //change img
     const img = document.querySelector("img");
     img.src = "images/me-spooky.webp";

@@ -75,12 +75,6 @@ main > h2:last-of-type::after {
   content: " 🔎" / "";
 }
 
-[role="link"] {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 main .light-dark-toggle {
   cursor: pointer;
   display: flex;
